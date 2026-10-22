@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="940" viewBox="0 0 1400 940">
+  <defs>
+    <style>
+      .title { font: 700 32px Arial, sans-serif; fill: #17202a; }
+      .subtitle { font: 18px Arial, sans-serif; fill: #5b6470; }
+      .heading { font: 700 23px Arial, sans-serif; fill: #17202a; }
+      .pin { font: 700 16px Arial, sans-serif; fill: #17202a; }
+      .small { font: 15px Arial, sans-serif; fill: #344253; }
+      .tiny { font: 13px Arial, sans-serif; fill: #344253; }
+      .white { fill: #ffffff; }
+      .box { fill: #eef4ff; stroke: #315b9c; stroke-width: 3; }
+      .board { fill: #e1f0d8; stroke: #4b8942; stroke-width: 4; }
+      .power { fill: none; stroke: #dc4d43; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .ground { fill: none; stroke: #333e48; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .tx { fill: none; stroke: #2478bf; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .rx { fill: none; stroke: #2b9870; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .pwm { fill: none; stroke: #953ca9; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .usb { fill: none; stroke: #d69322; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .node { fill: #ffffff; stroke: #475462; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="940" fill="#ffffff"/>
+  <text x="55" y="50" class="title">SƠ ĐỒ NỐI DÂY WEEDLASER</text>
+  <text x="55" y="79" class="subtitle">Bố cục theo hình phác thảo · Kết nối theo tên chân, không theo vị trí cơ khí của giắc</text>
+
+  <!-- Wires from laser to PCB -->
+  <path class="pwm" d="M110 275 V330 H515 V385"/>
+  <path class="ground" d="M180 275 V340 H565 V385"/>
+  <path class="power" d="M250 275 V350 H615 V385"/>
+
+  <!-- Buck input and USB output -->
+  <path class="power" d="M610 250 V310 H700 V385"/>
+  <path class="ground" d="M690 250 V300 H740 V385"/>
+  <path class="usb" d="M770 194 H930"/>
+  <text x="794" y="181" class="small" fill="#a26400">USB 5V + GND</text>
+
+  <!-- Computer control signals to PCB -->
+  <path class="tx" d="M985 300 V320 H790 V385"/>
+  <path class="rx" d="M1075 300 V330 H830 V385"/>
+  <path class="pwm" d="M1170 300 V340 H870 V385"/>
+  <path class="ground" d="M1275 300 V350 H910 V385"/>
+
+  <!-- PCB to PAN driver -->
+  <path class="power" d="M350 490 H470"/>
+  <path class="ground" d="M350 530 H470"/>
+  <path class="tx" d="M350 570 H470"/>
+  <path class="rx" d="M350 610 H470"/>
+
+  <!-- PCB to TILT driver -->
+  <path class="power" d="M930 490 H1050"/>
+  <path class="ground" d="M930 530 H1050"/>
+  <path class="tx" d="M930 570 H1050"/>
+  <path class="rx" d="M930 610 H1050"/>
+
+  <!-- 12 V supply to XT60 -->
+  <path class="power" d="M660 690 V785"/>
+  <path class="ground" d="M740 690 V785"/>
+
+  <!-- Laser -->
+  <rect class="box" x="45" y="115" width="270" height="160" rx="16"/>
+  <text x="180" y="150" class="heading" text-anchor="middle">LASER</text>
+  <text x="180" y="177" class="small" text-anchor="middle">Driver/module laser</text>
+  <line x1="60" y1="193" x2="300" y2="193" stroke="#afc3df" stroke-width="2"/>
+  <text x="110" y="236" class="pin" text-anchor="middle">PWM</text>
+  <text x="180" y="236" class="pin" text-anchor="middle">GND</text>
+  <text x="250" y="236" class="pin" text-anchor="middle">12V</text>
+  <circle class="node" cx="110" cy="275" r="6"/>
+  <circle class="node" cx="180" cy="275" r="6"/>
+  <circle class="node" cx="250" cy="275" r="6"/>
+
+  <!-- Buck 12 V to 5 V -->
+  <rect class="box" x="530" y="115" width="240" height="135" rx="16"/>
+  <text x="650" y="152" class="heading" text-anchor="middle">BUCK</text>
+  <text x="650" y="181" class="small" text-anchor="middle">12V → USB 5V</text>
+  <text x="610" y="223" class="pin" text-anchor="middle">IN+</text>
+  <text x="690" y="223" class="pin" text-anchor="middle">IN−</text>
+  <circle class="node" cx="610" cy="250" r="6"/>
+  <circle class="node" cx="690" cy="250" r="6"/>
+  <circle class="node" cx="770" cy="194" r="6"/>
+
+  <!-- Embedded computer -->
+  <rect class="box" x="930" y="110" width="420" height="190" rx="16"/>
+  <text x="1140" y="148" class="heading" text-anchor="middle">MÁY TÍNH NHÚNG</text>
+  <text x="1140" y="177" class="small" text-anchor="middle">Nguồn USB 5V · UART2 · PWM1</text>
+  <line x1="950" y1="198" x2="1330" y2="198" stroke="#afc3df" stroke-width="2"/>
+  <text x="985" y="249" class="pin" text-anchor="middle">IO11 TX</text>
+  <text x="1075" y="249" class="pin" text-anchor="middle">IO12 RX</text>
+  <text x="1170" y="249" class="pin" text-anchor="middle">IO43 PWM</text>
+  <text x="1275" y="249" class="pin" text-anchor="middle">GND</text>
+  <circle class="node" cx="930" cy="194" r="6"/>
+  <circle class="node" cx="985" cy="300" r="6"/>
+  <circle class="node" cx="1075" cy="300" r="6"/>
+  <circle class="node" cx="1170" cy="300" r="6"/>
+  <circle class="node" cx="1275" cy="300" r="6"/>
+
+  <!-- Custom PCB -->
+  <rect class="board" x="470" y="385" width="460" height="305" rx="18"/>
+  <text x="700" y="469" class="heading" text-anchor="middle">PCB PHÂN PHỐI</text>
+  <text x="700" y="499" class="small" text-anchor="middle">Nguồn · UART · PWM</text>
+  <line x1="485" y1="518" x2="915" y2="518" stroke="#7fad72" stroke-width="2"/>
+  <rect x="545" y="540" width="75" height="42" rx="5" fill="#aed39d" stroke="#629a57" stroke-width="2"/>
+  <rect x="648" y="540" width="75" height="42" rx="5" fill="#aed39d" stroke="#629a57" stroke-width="2"/>
+  <rect x="750" y="540" width="75" height="42" rx="5" fill="#aed39d" stroke="#629a57" stroke-width="2"/>
+  <text x="700" y="603" class="small" text-anchor="middle">Hai nhánh driver PAN / TILT</text>
+  <rect x="623" y="623" width="154" height="57" rx="9" fill="#f4b729" stroke="#b7830e" stroke-width="3"/>
+  <text x="700" y="658" class="heading" text-anchor="middle">XT60 12V</text>
+
+  <!-- Top PCB headers -->
+  <circle class="node" cx="515" cy="385" r="6"/><circle class="node" cx="565" cy="385" r="6"/><circle class="node" cx="615" cy="385" r="6"/>
+  <circle class="node" cx="700" cy="385" r="6"/><circle class="node" cx="740" cy="385" r="6"/>
+  <circle class="node" cx="790" cy="385" r="6"/><circle class="node" cx="830" cy="385" r="6"/><circle class="node" cx="870" cy="385" r="6"/><circle class="node" cx="910" cy="385" r="6"/>
+  <text x="515" y="415" class="tiny" text-anchor="middle">PWM</text><text x="565" y="415" class="tiny" text-anchor="middle">G</text><text x="615" y="415" class="tiny" text-anchor="middle">12V</text>
+  <text x="700" y="415" class="tiny" text-anchor="middle">12V</text><text x="740" y="415" class="tiny" text-anchor="middle">G</text>
+  <text x="790" y="415" class="tiny" text-anchor="middle">TX</text><text x="830" y="415" class="tiny" text-anchor="middle">RX</text><text x="870" y="415" class="tiny" text-anchor="middle">PWM</text><text x="910" y="415" class="tiny" text-anchor="middle">G</text>
+
+  <!-- Left and right PCB edge headers -->
+  <text x="490" y="479" class="small">PAN</text>
+  <text x="862" y="479" class="small">TILT</text>
+  <circle class="node" cx="470" cy="490" r="6"/><circle class="node" cx="470" cy="530" r="6"/><circle class="node" cx="470" cy="570" r="6"/><circle class="node" cx="470" cy="610" r="6"/>
+  <circle class="node" cx="930" cy="490" r="6"/><circle class="node" cx="930" cy="530" r="6"/><circle class="node" cx="930" cy="570" r="6"/><circle class="node" cx="930" cy="610" r="6"/>
+  <circle class="node" cx="660" cy="690" r="6"/><circle class="node" cx="740" cy="690" r="6"/>
+
+  <!-- PAN driver -->
+  <rect class="box" x="40" y="435" width="310" height="225" rx="16"/>
+  <text x="195" y="469" class="heading" text-anchor="middle">DRIVER STEP PAN</text>
+  <line x1="57" y1="478" x2="333" y2="478" stroke="#afc3df" stroke-width="2"/>
+  <text x="330" y="496" class="pin" text-anchor="end">V+ 12V</text>
+  <text x="330" y="536" class="pin" text-anchor="end">GND</text>
+  <text x="330" y="576" class="pin" text-anchor="end">RX ← TX máy</text>
+  <text x="330" y="616" class="pin" text-anchor="end">TX → RX máy</text>
+  <circle class="node" cx="350" cy="490" r="6"/><circle class="node" cx="350" cy="530" r="6"/><circle class="node" cx="350" cy="570" r="6"/><circle class="node" cx="350" cy="610" r="6"/>
+
+  <!-- TILT driver -->
+  <rect class="box" x="1050" y="435" width="310" height="225" rx="16"/>
+  <text x="1205" y="469" class="heading" text-anchor="middle">DRIVER STEP TILT</text>
+  <line x1="1067" y1="478" x2="1343" y2="478" stroke="#afc3df" stroke-width="2"/>
+  <text x="1070" y="496" class="pin">V+ 12V</text>
+  <text x="1070" y="536" class="pin">GND</text>
+  <text x="1070" y="576" class="pin">RX ← TX máy</text>
+  <text x="1070" y="616" class="pin">TX → RX máy</text>
+  <circle class="node" cx="1050" cy="490" r="6"/><circle class="node" cx="1050" cy="530" r="6"/><circle class="node" cx="1050" cy="570" r="6"/><circle class="node" cx="1050" cy="610" r="6"/>
+
+  <!-- Supply -->
+  <rect class="box" x="610" y="785" width="180" height="80" rx="15"/>
+  <text x="700" y="824" class="heading" text-anchor="middle">NGUỒN 12V</text>
+  <text x="700" y="849" class="small" text-anchor="middle">vào XT60</text>
+  <circle class="node" cx="660" cy="785" r="6"/><circle class="node" cx="740" cy="785" r="6"/>
+  <text x="648" y="768" class="small" text-anchor="middle">+</text>
+  <text x="752" y="768" class="small" text-anchor="middle">G</text>
+
+  <text x="40" y="907" class="small">Lưu ý: V+ 12V là đầu cấp nguồn motor; chân 3V3 trên giắc UART của MKS để trống. Kiểm tra đúng ký hiệu trên PCB trước khi cắm.</text>
+</svg>
