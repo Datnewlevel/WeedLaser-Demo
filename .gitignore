@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Firmware images (each is far above GitHub's 100 MB file limit)
+*.img.gz
+
+# Local working copies: git history already keeps old versions and run data
+k230_test/backup_*.py
+k230_test/backups/
+k230_test/logs/
